@@ -1,30 +1,24 @@
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import Card from "./Card";
-import RiptLogo from '/src/assets/RiptLogo.png';
-import NST from '/src/assets/NST.png';
-import React from 'react';
+import Home from './pages/Home';
+import About from './pages/About';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact'; // Ensure this import is correct
 
 function App() {
   return (
-    <>
+    <Router>
       <Navbar />
-      <div className="cardContainer">
-        <Card 
-          image={RiptLogo} 
-          title="Ript Fitness App" 
-          text="Creator and Frontend Dev for a full stack fitness app using React Native" 
-          cardClass="riptCard"
-        />
-        <Card 
-          image={NST} 
-          title="Neural Style Transfer Research" 
-          text="Description for another app" 
-          cardClass="nstCard"
-        />
-      </div>
+      <Routes>
+        <Route path="/Home" element={<Home />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Projects" element={<Projects />} />
+        <Route path="/Contact" element={<Contact />} />
+      </Routes>
       <Footer />
-    </>
+    </Router>
   );
 }
 
